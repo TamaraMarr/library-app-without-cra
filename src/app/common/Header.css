@@ -1,0 +1,10 @@
+.Header_logoImg {
+    height: 50px;
+    filter: invert(100);
+    margin: 5px;
+    margin-left: 25px;
+}
+
+.Header_logoDiv {
+    width: 300px;
+}

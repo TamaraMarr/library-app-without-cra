@@ -16,5 +16,9 @@
             "allow": ["warn", "error"]
         }],
         "no-debugger": 2
-    }
+    },
+    "extends": [
+        "prettier",
+        "prettier/react"
+    ]
 }

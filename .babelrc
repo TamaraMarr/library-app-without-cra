@@ -1,9 +1,16 @@
 {
     "presets": [
         "env",
-        "react"
+        "react",
+        "stage-0"
     ],
     "plugins": [
-        "react-hot-loader/babel"
+        "react-hot-loader/babel",
+        "transform-class-properties",
+        "syntax-async-functions",
+        "transform-regenerator", ["transform-runtime", {
+            "polyfill": false,
+            "regenerator": true
+        }]
     ]
 }

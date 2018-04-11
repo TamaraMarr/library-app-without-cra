@@ -10,7 +10,8 @@ const resolveConfig = {
         alias: {
             App: path.resolve(__dirname, '../src/app/'),
             Services: path.resolve(__dirname, '../src/services/'),
-            Common: path.resolve(__dirname, '../src/common/'),
+            Common: path.resolve(__dirname, '../src/app/common/'),
+            Components: path.resolve(__dirname, '../src/app/components'),
             Shared: path.resolve(__dirname, '../src/shared/')
         }
     }
