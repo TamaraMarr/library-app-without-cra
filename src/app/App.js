@@ -1,11 +1,16 @@
 import React, {
     Component, Fragment
 } from 'react';
+import { Switch, Route } from 'react-router-dom';
+
 import Header from "Common/Header";
 import Footer from "Common/Footer";
-import MainPage from "App/pages/MainPage";
+import MainPage from "Pages/MainPage";
+import SingleBookPage from "Pages/SingleBookPage";
+import ContactPage from "Pages/ContactPage";
+import { Books } from "Routes/Books";
+
 import "App/App.css";
-import Table from "Components/Table";
 
 export default class App extends Component {
     render() {
@@ -13,10 +18,12 @@ export default class App extends Component {
             <Fragment>
                 <Header />
                 <main>
-                    <MainPage />
+                    <Switch>
+                        <Route exact path="/" component={MainPage} />
+                        <Route path="/books" component={Books} />
+                        <Route path="/contact" component={ContactPage} />
+                    </Switch>
                 </main>
-                <Table rows={[["yo", "hi", "hello"], ["hola", "como estas", "chica"], ["ohayou", "konnichiwa", "konbanwa"]]} headers={["header1", "header2", "header3"]} />
-
                 <Footer />  
             </Fragment>
         )
