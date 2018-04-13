@@ -21,7 +21,8 @@ const config = merge(baseConfig, {
         hot: true,
         port: 3000,
         contentBase: path.resolve(__dirname, '../public'),
-        publicPath: '/'
+        publicPath: '/',
+        historyApiFallback: true
     },
 
     plugins: [

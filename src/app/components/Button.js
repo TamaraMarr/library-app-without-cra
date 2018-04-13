@@ -1,16 +1,27 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { createBooks } from 'Reducers/books';
+import PropTypes from 'prop-types';
 
 class Button extends Component {
-    constructor(props) {
-        super(props);
+
+    static propTypes = {
+        handler: PropTypes.func.isRequired,
+        text: PropTypes.string.isRequired
+    }
+
+    shouldComponentUpdate(nextProps) {
+        if (nextProps.text === this.props.text) {
+            return false;
+        }
+
+        return true;
     }
 
     render() {
         return (
             <div>
-                <input type="button" value="Submit" onClick={this.props.handler} />
+                <div>
+                    <button onClick={this.props.handler} id="button">{this.props.text}</button>
+                </div>
             </div>
         )
     }

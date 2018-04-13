@@ -31,8 +31,6 @@ export default class SingleBookPage extends Component {
     }
 
     render() {
-        /* eslint-disable */
-        console.log(this.state.bookData)
         return (
             <div className="container">
                 <div className="row">

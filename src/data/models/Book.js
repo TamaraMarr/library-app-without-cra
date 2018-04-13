@@ -1,5 +1,5 @@
 class Book {
-    constructor({ volumeInfo, id }) {
+    constructor({ volumeInfo, id, accessInfo }) {
         this.id = id;
         this.authors = volumeInfo.authors;
         this.title = volumeInfo.title;
@@ -15,7 +15,9 @@ class Book {
         this.pageCount = volumeInfo.pageCount;
         this.maturityRating = volumeInfo.maturityRating;
         this.publishedDate = volumeInfo.publishedDate;
-        this.publisher = volumeInfo.publisher
+        this.publisher = volumeInfo.publisher;
+        this.epub = accessInfo.epub.acsTokenLink;
+        this.pdf = accessInfo.pdf.acsTokenLink;
     }
 
     getImage(photos) {

@@ -1,7 +1,7 @@
 import { create } from 'apisauce';
 
-import { API_KEY, BASE_URL } from "../const/constants";
-import Book from "../models/Book";
+import { API_KEY, BASE_URL } from "../config/constants";
+import Book from "Models/Book";
 
 class DataService {
     getApi() {
@@ -26,9 +26,9 @@ class DataService {
     }
 
     async getFreeEBooks() {
-        const api= this.getApi();
+        const api = this.getApi();
         const data = await api.get(`https://www.googleapis.com/books/v1/volumes?q=books&maxResults=40&key=${API_KEY}`);
-        return data.data.items;
+        return data.data.items.map(book => new Book(book));
     }
 }
 

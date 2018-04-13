@@ -12,9 +12,7 @@
     },
     "rules": {
         "comma-dangle": [2, "never"],
-        "no-console": [2, {
-            "allow": ["warn", "error"]
-        }],
+        "no-console": 0,
         "no-debugger": 2
     },
     "extends": [

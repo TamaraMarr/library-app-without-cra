@@ -15,12 +15,12 @@ class ContactPage extends Component {
     render() {
         return (
             <div className="container">
-                <div className="row">
+                <div className="row home">
                     {this.props.books.map(book => {
                         return <div key={book}>{book}</div>;
                     })}
                 </div>
-                <Button handler={() => this.props.handleAddBook(Math.random())} />
+                <Button handler={() => this.props.handleAddBook(Math.random())} text="Hej" />
             </div>
         )
     }

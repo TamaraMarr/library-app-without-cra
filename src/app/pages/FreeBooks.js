@@ -2,27 +2,28 @@ import React, { Component } from 'react';
 
 import { connect } from 'react-redux';
 import { getFreeBooks } from 'Reducers/books';
+import Loader from "Common/Loader";
+import BookItem from "Components/BookItem";
 
-class AllBooks extends Component {
+class FreeBooks extends Component {
     constructor(props) {
         super(props);
     }
 
     componentDidMount() {
-       this.props.getFreeEBooks();
+        this.props.getFreeEBooks();
     }
 
     render() {
-        /* eslint-disable */
-        console.log(this.props.freeBooks);
-        console.log(this.props.status);
         return (
             <div className="container">
                 <div className="row">
-                HI
-                    {/* {this.props.freeBooks.map(book => {
-                        return <div>{book.title}</div>
-                    })} */}
+                    {this.props.status === "fulfilled"
+                        ? this.props.freeBooks.map(book => {
+                            return <BookItem bookData={book} key={book.id} />
+                        })
+                        : <Loader />
+                    }
                 </div>
             </div>
         )
@@ -30,7 +31,6 @@ class AllBooks extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log('state', state);
     return {
         freeBooks: state.freeBooks,
         status: state.status
@@ -45,4 +45,4 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AllBooks);
+export default connect(mapStateToProps, mapDispatchToProps)(FreeBooks);

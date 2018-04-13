@@ -2,6 +2,7 @@
     padding-left: 0;
     padding: 25px;
     overflow: hidden;
+    position: relative;
 }
 
 .collection .collection-item.avatar {
@@ -12,4 +13,20 @@
     float: left;
     margin-right: 25px;
     width: 128px;
+}
+
+.BookItem_linksDiv {
+    position: absolute;
+    top: 95%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.BookItem_linksDiv a {
+    margin-right: 15px;
+}
+
+.title {
+    margin-bottom: 10px;
 }

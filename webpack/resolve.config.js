@@ -15,7 +15,8 @@ const resolveConfig = {
             Shared: path.resolve(__dirname, '../src/shared/'),
             Pages: path.resolve(__dirname, '../src/app/pages/'),
             Routes: path.resolve(__dirname, '../src/routes/'),
-            Reducers: path.resolve(__dirname, '../src/reducers/')
+            Reducers: path.resolve(__dirname, '../src/data/reducers/'),
+            Models: path.resolve(__dirname, '../src/data/models/')
         }
     }
 };
