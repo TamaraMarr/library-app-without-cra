@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link } from 'react-router-dom';
 import { Navbar, NavItem, Icon } from "react-materialize";
 
-import "Common/Header.css";
+import "Components/Header.css";
 
 export default class Header extends Component {
     constructor(props) {

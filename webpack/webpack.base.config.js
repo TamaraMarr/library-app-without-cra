@@ -6,7 +6,7 @@ const ExtractTextPlugin =
     require("extract-text-webpack-plugin");
 
 const baseConfig = merge(resolveConfig, {
-    context: path.resolve(__dirname, '../src'),
+    context: path.resolve(__dirname, '../'),
 
     output: {
         path: path.resolve(__dirname, '../public'),

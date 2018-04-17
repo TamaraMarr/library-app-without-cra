@@ -1,6 +1,6 @@
 import { create } from 'apisauce';
 
-import { API_KEY, BASE_URL } from "../config/constants";
+import { API_KEY, BASE_URL } from "Config/constants";
 import Book from "Models/Book";
 
 class DataService {

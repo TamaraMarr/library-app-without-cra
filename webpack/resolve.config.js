@@ -4,19 +4,20 @@ const resolveConfig = {
     resolve: {
         extensions: ['.js', '.jsx', '.json'],
         modules: [
-            path.resolve(__dirname, '../src/'),
+            path.resolve(__dirname, '../'),
             'node_modules'
         ],
         alias: {
-            App: path.resolve(__dirname, '../src/app/'),
-            Services: path.resolve(__dirname, '../src/services/'),
-            Common: path.resolve(__dirname, '../src/app/common/'),
-            Components: path.resolve(__dirname, '../src/app/components/'),
-            Shared: path.resolve(__dirname, '../src/shared/'),
-            Pages: path.resolve(__dirname, '../src/app/pages/'),
-            Routes: path.resolve(__dirname, '../src/routes/'),
+            App: path.resolve(__dirname, '../src/'),
+            Components: path.resolve(__dirname, '../src/components/'),
+            Config:  path.resolve(__dirname, '../src/config/'),
+            Data:  path.resolve(__dirname, '../src/data/'),
+            Pages: path.resolve(__dirname, '../src/pages/'),
+            Models: path.resolve(__dirname, '../src/data/models/'),
             Reducers: path.resolve(__dirname, '../src/data/reducers/'),
-            Models: path.resolve(__dirname, '../src/data/models/')
+            Routes: path.resolve(__dirname, '../src/routes/'),
+            Services: path.resolve(__dirname, '../src/services/'),
+            Wrappers: path.resolve(__dirname, '../src/wrappers/')
         }
     }
 };

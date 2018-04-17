@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom';
 
 import 'Components/BookItem.css';
 
@@ -7,7 +8,7 @@ const BookItem = (props) => {
         <ul className="collection">
             <li className="collection-item avatar">
                 <img src={props.bookData.photo} alt="bookPhoto" className="BookItem_bookCover" />
-                <span className="title">{props.bookData.title ? props.bookData.title : "No Title Available"}</span>
+                <Link to={`/book/${props.bookData.id}`}><span className="title">{props.bookData.title ? props.bookData.title : "No Title Available"}</span></Link>
                 <p>{props.bookData.author}<br />
                     {props.bookData.description}
                 </p>

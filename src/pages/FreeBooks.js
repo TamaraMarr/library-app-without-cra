@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-
 import { connect } from 'react-redux';
+
 import { getFreeBooks } from 'Reducers/books';
-import Loader from "Common/Loader";
+import Loader from "Components/Loader";
 import BookItem from "Components/BookItem";
 
 class FreeBooks extends Component {

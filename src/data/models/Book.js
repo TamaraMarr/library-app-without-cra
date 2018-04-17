@@ -1,3 +1,5 @@
+import { DEFAULT_PHOTO } from "Config/constants";
+
 class Book {
     constructor({ volumeInfo, id, accessInfo }) {
         this.id = id;
@@ -22,7 +24,7 @@ class Book {
 
     getImage(photos) {
         if (!photos) {
-            return 'https://i.pinimg.com/originals/37/93/a0/3793a0d6a9c3ae6af7cabd9e85e595fb.jpg';
+            return DEFAULT_PHOTO;
         }
 
         if (photos.large) {
