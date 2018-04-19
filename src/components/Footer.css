@@ -1,17 +1,11 @@
-#root {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+.footer {#root {
+    
 }
 
-main {
-    flex: 1 0 auto;
-}
 
-.page-footer {
     padding: 0;
 }
 
-.page-footer > p {
+.footer > p {
     margin-left: 7%;
 }

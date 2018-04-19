@@ -1,7 +1,4 @@
 main {
     padding: 20px;
-}
-
-.input-field {
-    margin: 0;
+    flex: 1 0 auto;
 }

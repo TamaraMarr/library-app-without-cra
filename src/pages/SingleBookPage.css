@@ -1,19 +1,75 @@
-.card {
+.containerBox {
     position: relative;
 }
 
-.btn-floating {
+.cardBox {
+    border: 1px solid rgba(180, 180, 180, 0.5);
+    overflow: hidden;
+    margin: 25px 0;
+    padding: 20px;
+}
+
+.title {
+    padding-bottom: 5px;
+    margin-left: 10px;
+    color: teal;
+}
+
+.subtitle {
+    margin-left: 5%;
+    padding-bottom: 5px;
+    color: rgba(1, 163, 163, 0.596);
+}
+
+.coverDiv {
+    float: left;
+}
+
+.cover {
+    width: 100%;
+    padding: 15px;
+}
+
+.details {
+    float: left;
+}
+
+.descriptionDiv {
+    clear: both;
+    padding: 25px 0;
+}
+
+.description {
+    overflow: hidden;
+}
+
+.author {
+    padding-top: 10px;
+}
+
+.authorTag {
+    font-weight: bold;
+}
+
+.avgRatingDiv {
     position: absolute;
-    right: -15px;
-    top: -15px;
+    top: 10px;
+    right: 10px;
+    height: 35px;
+    border-radius: 15px;
+    padding: 15px;
+    background-color: teal;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    min-width: 300px;
 }
 
-.header {
-    font-size: 2em;
-    margin-bottom: 25px;
+.avgRating {
+    display: block;
 }
 
-.subheader {
-    font-size: 1.5em;
-    margin-bottom: 25px;
+:global .collection .collection-item.avatar {
+    padding-left: 25px;
 }

@@ -1,24 +1,24 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 
-import 'Components/BookItem.css';
+import styles from './BookItem.css';
 
 const BookItem = (props) => {
+    const bookData = props.bookData;
+    
     return (
-        <ul className="collection">
-            <li className="collection-item avatar">
-                <img src={props.bookData.photo} alt="bookPhoto" className="BookItem_bookCover" />
-                <Link to={`/book/${props.bookData.id}`}><span className="title">{props.bookData.title ? props.bookData.title : "No Title Available"}</span></Link>
-                <p>{props.bookData.author}<br />
-                    {props.bookData.description}
-                </p>
-                <div className="BookItem_linksDiv">
-                    {props.bookData.pdf ? <a className="BookItem_bookLink1" href={props.bookData.pdf}>PDF sample</a> : ""}
-                    {props.bookData.epub ? <a className="BookItem_bookLink2" href={props.bookData.epub}>EPUB sample</a> : ""}
-                    <a>Average rating: {props.bookData.averageRating ? props.bookData.averageRating : "n/a"}</a>
-                </div>
-            </li>
-        </ul>
+        <div className={styles.cardWrapper}>
+            <div className={styles.cardBox}>
+                <Link to={`/book/${bookData.id}`}><h4 className={styles.title}>{bookData.title ? bookData.title : "No Title Available"}</h4></Link>
+                <h5 className={styles.subtitle}>{bookData.subtitle && bookData.subtitle}</h5>
+                <img src={bookData.photo} alt="bookPhoto" className={`${styles.cover} col s12 m6 l3`} />
+                <p className={styles.author}><span className={styles.authorTag}>Authors: </span>{bookData.author ? bookData.author : "n/a"}</p>
+                <p className={styles.description}>{bookData.description}</p>
+            </div>
+            <div className={styles.avgRatingDiv}>
+                <span>Average rating: {bookData.averageRating ? bookData.averageRating : "n/a"}</span>
+            </div>
+        </div>
     )
 }
 

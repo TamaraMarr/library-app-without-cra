@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import "Components/Loader.css";
+import styles from "./Loader.css";
 
 export default class Loader extends Component {
 
@@ -8,7 +8,7 @@ export default class Loader extends Component {
         return (
             <div className="container">
                 <div className="row">
-                    <img src="https://i.giphy.com/media/xUOwG8l3u3IF5awt9u/giphy.webp" className="col s6 offset-s3 loader" />
+                    <img src="https://i.giphy.com/media/xUOwG8l3u3IF5awt9u/giphy.webp" className={`col s6 offset-s3 ${styles.loader}`} />
                 </div>
             </div>
         )

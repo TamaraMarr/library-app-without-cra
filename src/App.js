@@ -9,7 +9,7 @@ import MainPage from "Pages/MainPage";
 import SingleBookPage from "Pages/SingleBookPage";
 import { Books } from "Routes/Books";
 
-import "App/App.css";
+import styles from "./App.css";
 
 export default class App extends Component {
     render() {
@@ -19,7 +19,6 @@ export default class App extends Component {
                 <main>
                     <Switch>
                         <Route exact path="/" component={MainPage} />
-                        <Route path="/books" component={Books} />
                         <Route path="/book/:id" component={SingleBookPage} />
                     </Switch>
                 </main>

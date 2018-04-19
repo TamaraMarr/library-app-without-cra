@@ -5,6 +5,11 @@
         "stage-0"
     ],
     "plugins": [
+        ["react-css-modules", {
+            "webpackHotModuleReloading": true,
+            "context": "./"
+        }],
+        "babel-plugin-react-css-modules",
         "react-hot-loader/babel",
         "transform-class-properties",
         "syntax-async-functions",

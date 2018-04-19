@@ -14,8 +14,6 @@ class ValidationService {
     }
     
     validateISBN(isbn) {
-        console.log(isbn)
-        console.log(isbn.indexOf('-'))
         if (isbn.indexOf('-') !== -1) {
             return false;
         }

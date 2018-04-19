@@ -5,7 +5,7 @@ import { dataService } from "Services/dataService";
 import { validationService } from "Services/validationService";
 import BookItem from "Components/BookItem";
 
-import "Pages/MainPage.css";
+import styles from "./MainPage.css";
 
 class MainPage extends Component {
     constructor(props) {
@@ -17,8 +17,7 @@ class MainPage extends Component {
             searchType: "Category",
             queryError: false,
             searchTypeError: false,
-            isbnError: false,
-            dropDownState: "dropdown-button btn"
+            isbnError: false
         }
     }
 
@@ -91,18 +90,11 @@ class MainPage extends Component {
         }
     }
 
-    dropDownButton = () => {
-        this.setState({
-            dropDownState: "dropdown-button btn active"
-        })
-    }
-
     render() {
-        console.log(this.state.searchType, this.state.searchQuery)
         return (
             <div className="container">
                 <div className="row">
-                    <div className="col s12 m6 l8 input-field">
+                    <div className={`col s12 m6 l8 ${styles.inputField}`}>
                         <input type="text" value={this.state.searchQuery} onChange={this.getSearchQuery} onKeyDown={this.handleEnter} tabIndex="0" placeholder="Search" />
                     </div>
                     <div className="col s6 m3 l2">
@@ -117,9 +109,9 @@ class MainPage extends Component {
                         </Dropdown>
                     </div>
                     <div className="col s6 m3 l2">
-                        <input type="button" value="Search" onClick={this.sendSearchRequest} className="btn" />
+                        <input type="button" value="Search" onClick={this.sendSearchRequest} className={`${styles.categorySearchButton} btn`} />
                     </div>
-                    <div className="col s12 MainPage_errorDiv">
+                    <div className={`col s12 ${styles.errorDiv}`}>
                         {this.state.queryError ? "Please enter a search term." : ""}
                         {this.state.searchTypeError ? "Please choose a category." : ""}
                         {this.state.isbnError ? "Please enter the ISBN number without hyphens." : ""}
