@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "homepage": "https://tamaramarr.github.io/library-app-without-cra/",
   "scripts": {
     "start": "webpack-dev-server --open --inline --progress --config webpack/webpack.dev.config.js",
     "build": "webpack --config webpack/webpack.prod.config.js",
