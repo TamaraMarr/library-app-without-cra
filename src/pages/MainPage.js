@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Dropdown, Button, NavItem } from "react-materialize";
+import { connect } from 'react-redux';
 
+import { getSearchType, getSearchQuery } from 'Reducers/books';
 import { dataService } from "Services/dataService";
 import { validationService } from "Services/validationService";
-import BookItem from "Components/BookItem";
+import Books from "Pages/Books";
 
 import styles from "./MainPage.css";
 
@@ -15,6 +17,7 @@ class MainPage extends Component {
             bookData: [],
             searchQuery: "",
             searchType: "Category",
+            showBooks: false,
             queryError: false,
             searchTypeError: false,
             isbnError: false
@@ -41,7 +44,13 @@ class MainPage extends Component {
         })
     }
 
-    sendSearchRequest = async () => {
+    handleEnter = (event) => {
+        if (event.key === "Enter") {
+            this.sendSearchRequest();
+        }
+    }
+
+    sendSearchRequest = () => {
         this.resetErrors();
 
         if (!validationService.validateSearchString(this.state.searchQuery)) {
@@ -76,18 +85,13 @@ class MainPage extends Component {
         } else {
             searchType = this.state.searchType.toLowerCase();
         }
-
-        const bookData = await dataService.searchVolumes(searchType, this.state.searchQuery);
+        
+        this.props.getSearchType(searchType);
+        this.props.getSearchQuery(this.state.searchQuery);
 
         this.setState({
-            bookData
+            showBooks: true
         })
-    }
-
-    handleEnter = (event) => {
-        if (event.key === "Enter") {
-            this.sendSearchRequest();
-        }
     }
 
     render() {
@@ -116,13 +120,28 @@ class MainPage extends Component {
                         {this.state.searchTypeError ? "Please choose a category." : ""}
                         {this.state.isbnError ? "Please enter the ISBN number without hyphens." : ""}
                     </div>
-                    <div className="col s12">
-                        {this.state.bookData.map(book => <BookItem key={book.id} bookData={book} />)}
-                    </div>
+                    {this.state.showBooks && <Books searchType={this.state.searchType} searchQuery={this.state.searchQuery} />}
                 </div>
             </div>
         )
     }
 }
 
-export default MainPage;
+const mapStateToProps = (state) => {
+    return {
+        
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getSearchType: (searchType) => {
+            dispatch(getSearchType(searchType))
+        },
+        getSearchQuery: (searchQuery) => {
+            dispatch(getSearchQuery(searchQuery))
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainPage);

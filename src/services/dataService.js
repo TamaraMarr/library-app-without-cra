@@ -16,6 +16,7 @@ class DataService {
     async searchVolumes(searchType, searchQuery) {
         const api = this.getApi();
         const data = await api.get(`/volumes?q=${searchType}:${searchQuery}&maxResults=40&key=${API_KEY}`)
+
         return data.data.items.map(book => new Book(book));
     }
 
@@ -27,7 +28,7 @@ class DataService {
 
     async getFreeEBooks() {
         const api = this.getApi();
-        const data = await api.get(`https://www.googleapis.com/books/v1/volumes?q=books&maxResults=40&key=${API_KEY}`);
+        const data = await api.get(`/volumes?q=books&maxResults=40&key=${API_KEY}`);
         return data.data.items.map(book => new Book(book));
     }
 }

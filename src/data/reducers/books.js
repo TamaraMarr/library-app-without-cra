@@ -3,34 +3,34 @@ import { dataService } from "Services/dataService";
 // Actions
 
 const BOOKS = {
-    createBooks: "BOOKS::CREATE_BOOKS",
-    addBook: "BOOKS::ADD_BOOK",
-    getFreeBooks: "BOOKS::GET_FREE_BOOKS",
-    getFreeBooksPending: "BOOKS::GET_FREE_BOOKS_PENDING",
-    getFreeBooksFulfilled: "BOOKS::GET_FREE_BOOKS_FULFILLED",
-    getFreeBooksRejected: "BOOKS::GET_FREE_BOOKS_REJECTED"
+    searchType: "BOOKS::SEARCH_TYPE",
+    searchQuery: "BOOKS::SEARCH_QUERY",
+    getBooks: "BOOKS::GET_BOOKS",
+    getBooksPending: "BOOKS::GET_BOOKS_PENDING",
+    getBooksFulfilled: "BOOKS::GET_BOOKS_FULFILLED",
+    getBooksRejected: "BOOKS::GET_BOOKS_REJECTED"
 }
 
 const defaultReducer = {
     books: [],
-    freeBooks: [],
-    status: 'no status'
+    searchType: "",
+    searchQuery: ""
 }
 
 // Reducer
 
 export default function reducer(state = defaultReducer, action) {
     switch (action.type) {
-        case BOOKS.createBooks:
-            return Object.assign({}, state, {books: [1, 2, 3, 4, 5]});
-        case BOOKS.addBook:
-            return Object.assign({}, state, {books: [...state.books, action.payload]});
-        case BOOKS.getFreeBooksPending:
-            return Object.assign({}, state, {status: 'pending', freeBooks: action.payload});
-        case BOOKS.getFreeBooksFulfilled:
-            return Object.assign({}, state, {status: 'fulfilled', freeBooks: action.payload});
-        case BOOKS.getFreeBooksRejected:
-            return  Object.assign({}, state, {status: 'rejected', freeBooks: action.payload});
+        case BOOKS.searchType:
+            return Object.assign({}, state, {searchType: action.payload});
+        case BOOKS.searchQuery:
+            return Object.assign({}, state, {searchQuery: action.payload});
+        case BOOKS.getBooksPending:
+            return Object.assign({}, state, {status: 'pending', books: action.payload});
+        case BOOKS.getBooksFulfilled:
+            return Object.assign({}, state, {status: 'fulfilled', books: action.payload});
+        case BOOKS.getBooksRejected:
+            return  Object.assign({}, state, {status: 'rejected', books: action.payload});
         default:
             return state;
     }
@@ -38,23 +38,23 @@ export default function reducer(state = defaultReducer, action) {
 
 // Action Creators
 
-export function createBooks() {
+export function getBooks(searchType, searchQuery) {
     return {
-        type: BOOKS.createBooks,
-        payload: null
+        type: BOOKS.getBooks,
+        payload: dataService.searchVolumes(searchType, searchQuery)
     }
 }
 
-export function addBook(book) {
+export function getSearchType(searchType) {
     return {
-        type: BOOKS.addBook,
-        payload: book
+        type: BOOKS.searchType,
+        payload: searchType
     }
 }
 
-export function getFreeBooks() {
+export function getSearchQuery(searchQuery) {
     return {
-        type: BOOKS.getFreeBooks,
-        payload: dataService.getFreeEBooks()
+        type: BOOKS.searchQuery,
+        payload: searchQuery
     }
 }

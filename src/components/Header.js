@@ -9,7 +9,7 @@ export default class Header extends Component {
         super(props);
     }
 
-    componentDidMount(){
+    componentDidMount() {
         $(".button-collapse").sideNav();
     }
 
@@ -18,7 +18,7 @@ export default class Header extends Component {
             <header>
                 <nav>
                     <div className="nav-wrapper teal lighten-2">
-                        <Link to="/" className="brand-logo"><img src="https://www.shareicon.net/data/256x256/2016/09/02/823795_book_512x512.png" alt="logo" className={styles.logo} /></Link>
+                        <Link to="/" className={`${styles.logoWrapper}`}><img src="https://www.shareicon.net/data/256x256/2016/09/02/823795_book_512x512.png" alt="logo" className={styles.logoImg} /><span className={styles.logoText}>MyLib</span></Link>
                         <a href="#" data-activates="mobile-demo" className="button-collapse"><i className="material-icons">menu</i></a>
                         <ul className="right hide-on-med-and-down">
                             {/* <li><Link to="/">Main</Link></li> */}
