@@ -8,7 +8,7 @@ const config = merge(baseConfig, {
 
     entry: {
         src: [
-            './index.js'
+            '../src/index.js'
         ]
     },
 

@@ -11,7 +11,7 @@ const config = merge(baseConfig, {
     entry: {
         src: [
             'webpack/hot/only-dev-server',
-            './index.js'
+            '../src/index.js'
         ]
     },
 

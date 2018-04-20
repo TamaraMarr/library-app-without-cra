@@ -2,11 +2,11 @@ const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const resolveConfig = require('./resolve.config.js');
-const ExtractTextPlugin =
-    require("extract-text-webpack-plugin");
+// const ExtractTextPlugin =
+//     require("extract-text-webpack-plugin");
 
 const baseConfig = merge(resolveConfig, {
-    context: path.resolve(__dirname, '../'),
+    context: path.resolve(__dirname + './'),
 
     output: {
         path: path.resolve(__dirname, '../public'),
@@ -14,11 +14,15 @@ const baseConfig = merge(resolveConfig, {
         publicPath: '/'
     },
 
+    performance: {
+        hints: false
+    },
+
     module: {
         rules: [
             {
                 test: /\.css$/,
-                loader: ["style-loader"]
+                use: ["style-loader"]
             },
             {
                 test: /\.css$/,
