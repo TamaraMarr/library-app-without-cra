@@ -2,7 +2,7 @@
 
 MyLib uses Google Books' API to help you search for information about books.
 
-Demo: [MyLib](https://tamaramarr.github.io/mylib/).
+Demo: [MyLib](https://tamaramarr.github.io/library-app-without-cra/).
 
 ### Stack
 
